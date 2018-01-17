@@ -1,5 +1,8 @@
 package dsa;
 
+import dsa.exception.ExceptionStackEmpty;
+import dsa.exception.ExceptionStackFull;
+
 public class Stack_Array implements Stack {
     public static final int CAPACITY = 1024;
     protected int capacity;
@@ -26,7 +29,7 @@ public class Stack_Array implements Stack {
         return S[top];
     }
 
-    public void push(Object ele) throws ExceptionStackFull{
+    public void push(Object ele) throws ExceptionStackFull {
         if (getSize() == capacity) {
             throw new ExceptionStackFull("意外：栈溢出");
         }

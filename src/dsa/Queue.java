@@ -1,5 +1,8 @@
 package dsa;
 
+import dsa.exception.ExceptionQueueEmpty;
+import dsa.exception.ExceptionQueueFull;
+
 public interface Queue {
     int getSize();
 

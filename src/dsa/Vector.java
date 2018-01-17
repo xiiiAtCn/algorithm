@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionBoundaryViolation;
+
 public interface Vector {
     int getSize();
 

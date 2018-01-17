@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionBoundaryViolation;
+
 public class Vector_Array implements Vector {
     private final int N = 1024;
     private int n = 0;

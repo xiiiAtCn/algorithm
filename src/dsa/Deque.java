@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionQueueEmpty;
+
 public interface Deque {
     int getSize();
 

@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionQueueEmpty;
+
 public class Deque_DLNode implements Deque {
 
     protected DLNode header;

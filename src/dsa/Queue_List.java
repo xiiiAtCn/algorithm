@@ -1,5 +1,8 @@
 package dsa;
 
+import dsa.exception.ExceptionQueueEmpty;
+import dsa.exception.ExceptionQueueFull;
+
 public class Queue_List implements Queue {
 
     protected Node head;

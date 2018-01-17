@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionBoundaryViolation;
+
 public class Vector_ExtArray implements Vector {
 
     private int N = 8;

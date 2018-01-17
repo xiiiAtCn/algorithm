@@ -1,5 +1,8 @@
 package dsa;
 
+import dsa.exception.ExceptionQueueEmpty;
+import dsa.exception.ExceptionQueueFull;
+
 public class Queue_Array implements Queue {
 
     public static final  int CAPACITY = 1024;

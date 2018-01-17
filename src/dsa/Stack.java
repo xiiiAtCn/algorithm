@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionStackEmpty;
+
 public interface Stack<T> {
     int getSize();
 

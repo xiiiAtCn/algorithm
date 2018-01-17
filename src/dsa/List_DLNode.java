@@ -1,6 +1,10 @@
 package dsa;
 
 
+import dsa.exception.ExceptionBoundaryViolation;
+import dsa.exception.ExceptionListEmpty;
+import dsa.exception.ExceptionPositionInvalid;
+
 import java.util.Iterator;
 
 public class List_DLNode implements List {
@@ -42,7 +46,7 @@ public class List_DLNode implements List {
         return numElem == 0;
     }
 
-    public Position first() throws ExceptionListEmpty{
+    public Position first() throws ExceptionListEmpty {
         if (isEmpty()) {
             throw new ExceptionListEmpty("意外: 列表空");
         }

@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.exception.ExceptionStackEmpty;
+
 public class Stack_List implements Stack {
 
     protected Node top;

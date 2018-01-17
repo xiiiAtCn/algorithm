@@ -1,5 +1,8 @@
 package dsa;
 
+import dsa.exception.ExceptionBoundaryViolation;
+import dsa.exception.ExceptionPositionInvalid;
+
 import java.util.Iterator;
 
 public interface List {

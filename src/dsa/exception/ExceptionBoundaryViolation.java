@@ -1,4 +1,4 @@
-package dsa;
+package dsa.exception;
 
 public class ExceptionBoundaryViolation extends RuntimeException {
 
