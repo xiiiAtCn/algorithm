@@ -1,17 +1,39 @@
 package dsa;
 
-import java.util.Iterator;
+
+import dsa.exception.ExceptionNoSuchElement;
 
 public class IteratorPosition implements Iterator{
-    public IteratorPosition(List list) {
+    private List list;
+    private Position nextPosition;
 
+    public IteratorPosition() {
+        list = null;
+    }
+
+    public IteratorPosition(List list) {
+        this.list = list;
+        if (list.isEmpty()) {
+            nextPosition = null;
+        } else {
+            nextPosition = list.first();
+        }
     }
 
     public boolean hasNext() {
-        return false;
+        return nextPosition != null;
     }
 
-    public Object next() {
-        return null;
+    public Object getNext() throws ExceptionNoSuchElement {
+        if (!hasNext()) {
+            throw new ExceptionNoSuchElement("意外: 没有下一位置");
+        }
+        Position currentPosition = nextPosition;
+        if (currentPosition == list.last()) {
+            nextPosition = null;
+        } else {
+            nextPosition = list.getNext(currentPosition);
+        }
+        return currentPosition;
     }
 }
