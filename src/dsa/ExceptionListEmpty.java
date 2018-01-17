@@ -1,4 +1,7 @@
 package dsa;
 
-public interface ExceptionListEmpty {
+public class ExceptionListEmpty extends RuntimeException {
+    public ExceptionListEmpty(String err) {
+        super(err);
+    }
 }
