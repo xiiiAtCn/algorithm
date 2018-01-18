@@ -1,7 +1,7 @@
 package dsa.interfaces;
 
-public interface Iterator {
+public interface Iterator<T> {
     boolean hasNext();
 
-    Object getNext();
+    T getNext();
 }
