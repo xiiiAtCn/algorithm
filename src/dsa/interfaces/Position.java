@@ -1,7 +1,7 @@
 package dsa.interfaces;
 
-public interface Position {
-    Object getElement();
+public interface Position<T> {
+    T getElement();
 
-    Object setElement(Object object);
+    T setElement(T object);
 }

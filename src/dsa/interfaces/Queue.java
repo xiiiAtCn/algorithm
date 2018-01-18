@@ -3,16 +3,16 @@ package dsa.interfaces;
 import dsa.exception.ExceptionQueueEmpty;
 import dsa.exception.ExceptionQueueFull;
 
-public interface Queue {
+public interface Queue<T> {
     int getSize();
 
     boolean isEmpty();
 
-    Object front() throws ExceptionQueueEmpty;
+    T front() throws ExceptionQueueEmpty;
 
-    void enqueue(Object object) throws ExceptionQueueFull;
+    void enqueue(T object) throws ExceptionQueueFull;
 
-    Object dequeue() throws ExceptionQueueEmpty;
+    T dequeue() throws ExceptionQueueEmpty;
 
     void traversal();
 }

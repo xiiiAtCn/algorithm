@@ -4,10 +4,10 @@ import dsa.exception.ExceptionQueueEmpty;
 import dsa.exception.ExceptionQueueFull;
 import dsa.interfaces.Queue;
 
-public class Queue_List implements Queue {
+public class Queue_List<T> implements Queue<T> {
 
-    protected Node head;
-    protected Node tail;
+    protected Node<T> head;
+    protected Node<T> tail;
     protected int size;
 
     public Queue_List() {
@@ -23,14 +23,14 @@ public class Queue_List implements Queue {
         return size == 0;
     }
 
-    public Object front() throws ExceptionQueueEmpty {
+    public T front() throws ExceptionQueueEmpty {
         if (isEmpty()) {
             throw new ExceptionQueueEmpty("意外: 队列空");
         }
         return head.getElement();
     }
 
-    public void enqueue(Object object) throws ExceptionQueueFull {
+    public void enqueue(T object) throws ExceptionQueueFull {
         Node node = new Node();
         node.setElement(object);
         node.setNext(null);
@@ -42,11 +42,11 @@ public class Queue_List implements Queue {
         size++;
     }
 
-    public Object dequeue() throws ExceptionQueueEmpty {
+    public T dequeue() throws ExceptionQueueEmpty {
         if (isEmpty()) {
             throw new ExceptionQueueEmpty("意外: 队列空");
         }
-        Object obj = head.getElement();
+        T obj = head.getElement();
         head = head.getNext();
         size--;
         if (isEmpty()) {

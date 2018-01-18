@@ -2,25 +2,25 @@ package dsa;
 
 import dsa.interfaces.Position;
 
-public class Node implements Position {
-    private Object element;
+public class Node<T> implements Position<T> {
+    private T element;
     private Node next;
 
     public Node() {
         this(null, null);
     }
 
-    public Node(Object e, Node n) {
+    public Node(T e, Node n) {
         element = e;
         next = n;
     }
 
-    public Object getElement() {
+    public T getElement() {
         return element;
     }
 
-    public Object setElement(Object element) {
-        Object oldElement = this.element;
+    public T setElement(T element) {
+        T oldElement = this.element;
         this.element = element;
         return oldElement;
     }
