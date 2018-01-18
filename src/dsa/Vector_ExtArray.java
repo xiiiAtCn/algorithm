@@ -1,6 +1,7 @@
 package dsa;
 
 import dsa.exception.ExceptionBoundaryViolation;
+import dsa.interfaces.Vector;
 
 public class Vector_ExtArray implements Vector {
 

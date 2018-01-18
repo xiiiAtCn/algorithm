@@ -2,6 +2,7 @@ package dsa;
 
 import dsa.exception.ExceptionStackEmpty;
 import dsa.exception.ExceptionStackFull;
+import dsa.interfaces.Stack;
 
 public class Stack_Array implements Stack {
     public static final int CAPACITY = 1024;

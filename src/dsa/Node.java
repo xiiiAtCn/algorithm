@@ -1,6 +1,8 @@
 package dsa;
 
-public class Node implements Position{
+import dsa.interfaces.Position;
+
+public class Node implements Position {
     private Object element;
     private Node next;
 

@@ -2,6 +2,9 @@ package dsa;
 
 
 import dsa.exception.ExceptionNoSuchElement;
+import dsa.interfaces.Iterator;
+import dsa.interfaces.List;
+import dsa.interfaces.Position;
 
 public class IteratorElement implements Iterator {
     private List list;

@@ -1,6 +1,7 @@
 package dsa;
 
 import dsa.exception.ExceptionStackEmpty;
+import dsa.interfaces.Stack;
 
 public class Stack_List implements Stack {
 

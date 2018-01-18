@@ -1,5 +1,7 @@
 package dsa;
 
+import dsa.interfaces.Position;
+
 public class DLNode implements Position {
 
     private Object element;

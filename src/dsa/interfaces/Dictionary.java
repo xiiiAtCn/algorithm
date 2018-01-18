@@ -1,4 +1,4 @@
-package dsa;
+package dsa.interfaces;
 
 public interface Dictionary {
     int getSize();

@@ -1,6 +1,7 @@
 package dsa;
 
 import dsa.exception.ExceptionQueueEmpty;
+import dsa.interfaces.Deque;
 
 public class Deque_DLNode implements Deque {
 

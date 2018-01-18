@@ -1,4 +1,4 @@
-package dsa;
+package dsa.interfaces;
 
 import dsa.exception.ExceptionBoundaryViolation;
 import dsa.exception.ExceptionPositionInvalid;

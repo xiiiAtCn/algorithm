@@ -2,6 +2,7 @@ package dsa;
 
 import dsa.exception.ExceptionQueueEmpty;
 import dsa.exception.ExceptionQueueFull;
+import dsa.interfaces.Queue;
 
 public class Queue_Array implements Queue {
 

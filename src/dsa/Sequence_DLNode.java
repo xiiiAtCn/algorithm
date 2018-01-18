@@ -2,6 +2,8 @@ package dsa;
 
 import dsa.exception.ExceptionBoundaryViolation;
 import dsa.exception.ExceptionPositionInvalid;
+import dsa.interfaces.Position;
+import dsa.interfaces.Sequence;
 
 public class Sequence_DLNode extends List_DLNode implements Sequence {
 
