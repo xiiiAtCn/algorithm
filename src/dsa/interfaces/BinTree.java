@@ -11,6 +11,8 @@ public interface BinTree<T> {
 
     Iterator elementsPreOrder();
 
+    Iterator elementsInOrder();
+
     Iterator elementsPostOrder();
 
     Iterator elementsLevelOrder();
