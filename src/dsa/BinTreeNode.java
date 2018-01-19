@@ -1,17 +1,17 @@
 package dsa;
 
-import dsa.interfaces.BinTreePosition;
-import dsa.interfaces.Iterator;
+import dsa.interfaces.*;
 
+//迭代器该如何定义,才能保证泛型参数的正确性
 public class BinTreeNode<T> implements BinTreePosition<T> {
 
     protected T element;
     protected BinTreePosition<T> parent;
     protected BinTreePosition<T> lChild;
     protected BinTreePosition<T> rChild;
-    protected int size;
-    protected int height;
-    protected int depth;
+    protected int size;     //后代数目
+    protected int height;   //高度
+    protected int depth;    //深度
 
     public BinTreeNode() {
         this(null, null, true, null, null);
@@ -158,46 +158,109 @@ public class BinTreeNode<T> implements BinTreePosition<T> {
         }
     }
 
+    //中序遍历的前驱节点
     @Override
     public BinTreePosition<T> getPrev() {
-        return null;
+        if (hasLChild()) {
+            return findMaxDescendant(getLChild());
+        }
+        if (hasRChild()) {
+            return getParent();
+        }
+        BinTreePosition<T> v = this;
+        while (v.isLChild()) {
+            v = v.getParent();
+        }
+        return v.getParent();
     }
 
+    //中序遍历的后继节点
     @Override
     public BinTreePosition<T> getSucc() {
-        return null;
+        if (hasRChild()) {
+            return findMaxDescendant(getRChild());
+        }
+        if (hasLChild()) {
+            return getParent();
+        }
+        BinTreePosition<T> v = this;
+        while (v.isRChild()) {
+            v = v.getParent();
+        }
+        return v.getParent();
     }
 
     @Override
     public BinTreePosition<T> secede() {
-        return null;
+        if (null != parent) {
+            if (isLChild()) {
+                parent.setLChild(null);
+            } else {
+                parent.setRChild(null);
+            }
+            parent.updateSize();
+            parent.updateHeight();
+            parent = null;
+            updateDepth();
+        }
+        return this;
     }
 
     @Override
     public BinTreePosition<T> attachL(BinTreePosition<T> c) {
-        return null;
+        if (hasLChild()) {
+            getLChild().secede();
+        }
+        if (null != c) {
+            c.secede();
+            lChild = c;
+            c.setParent(this);
+            updateSize();
+            updateHeight();
+            c.updateDepth();
+        }
+        return this;
     }
 
     @Override
     public BinTreePosition<T> attachR(BinTreePosition<T> c) {
-        return null;
+        if (hasRChild()) {
+            getRChild().secede();
+        }
+        if (null != c) {
+            c.secede();
+            rChild = c;
+            c.setParent(this);
+            updateSize();
+            updateHeight();
+            c.updateHeight();
+        }
+        return this;
     }
 
     @Override
     public Iterator<T> elementsPreOrder() {
-        return null;
+        List list = new List_DLNode();
+        preOrder(list, this);
+        return list.elements();
     }
 
     public Iterator<T> elementsInOrder() {
-        return null;
+        List list = new List_DLNode();
+        inOrder(list, this);
+        return list.elements();
     }
 
     public Iterator<T> elementsPostOrder() {
-        return null;
+        List list = new List_DLNode();
+        postOrder(list, this);
+        return list.elements();
     }
 
     public Iterator<T> elementsLevelOrder() {
-        return null;
+        List list = new List_DLNode();
+        levelOrder(list, this);
+        return list.elements();
     }
 
     public T getElement() {
@@ -208,5 +271,65 @@ public class BinTreeNode<T> implements BinTreePosition<T> {
         T bak = object;
         element = object;
         return bak;
+    }
+
+    protected static <T> BinTreePosition<T> findMinDescendant(BinTreePosition<T> v) {
+        if (null != v) {
+            while (v.hasLChild()) {
+                v = v.getLChild();
+            }
+        }
+        return v;
+    }
+
+    protected static <T> BinTreePosition<T> findMaxDescendant(BinTreePosition<T> v) {
+        if (null != v) {
+            while (v.hasRChild()) {
+                v = v.getRChild();
+            }
+        }
+        return v;
+    }
+
+    protected static <T> void preOrder(List list, BinTreePosition<T> v) {
+        if (null == v) {
+            return;
+        }
+        list.insertLast(v);
+        preOrder(list, v.getLChild());
+        preOrder(list, v.getRChild());
+    }
+
+    protected static <T> void inOrder(List<BinTreePosition> list, BinTreePosition<T> v) {
+        if (null == v) {
+            return;
+        }
+        inOrder(list, v.getLChild());
+        list.insertLast(v);
+        inOrder(list, v.getRChild());
+    }
+
+    protected static <T> void postOrder(List<BinTreePosition> list, BinTreePosition<T> v) {
+        if (null == v) {
+            return;
+        }
+        postOrder(list, v.getLChild());
+        postOrder(list, v.getRChild());
+        list.insertLast(v);
+    }
+
+    protected static <T> void levelOrder(List<BinTreePosition> list, BinTreePosition<T> v) {
+        Queue_List<BinTreePosition<T>> queue_list = new Queue_List<>();
+        queue_list.enqueue(v);
+        while (!queue_list.isEmpty()) {
+            BinTreePosition<T> position = queue_list.dequeue();
+            list.insertLast(position);
+            if (v.hasLChild()) {
+                queue_list.enqueue(position.getLChild());
+            }
+            if (v.hasRChild()) {
+                queue_list.enqueue(position.getRChild());
+            }
+        }
     }
 }

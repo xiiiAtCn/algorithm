@@ -3,39 +3,38 @@ package dsa.interfaces;
 import dsa.exception.ExceptionBoundaryViolation;
 import dsa.exception.ExceptionPositionInvalid;
 
-import java.util.Iterator;
 
-public interface List {
+public interface List<T> {
     int getSize();
 
     boolean isEmpty();
 
-    Position first();
+    Position<T> first();
 
-    Position last();
+    Position<T> last();
 
-    Position getNext(Position position) throws ExceptionPositionInvalid, ExceptionBoundaryViolation;
+    Position<T> getNext(Position<T> position) throws ExceptionPositionInvalid, ExceptionBoundaryViolation;
 
-    Position getPrev(Position position) throws ExceptionPositionInvalid, ExceptionBoundaryViolation;
+    Position<T> getPrev(Position<T> position) throws ExceptionPositionInvalid, ExceptionBoundaryViolation;
 
-    Position insertFirst(Object object);
+    Position<T> insertFirst(T object);
 
-    Position insertLast(Object object);
+    Position<T> insertLast(T object);
 
-    Position insertAfter(Position p, Object object) throws ExceptionPositionInvalid;
+    Position<T> insertAfter(Position<T> p, T object) throws ExceptionPositionInvalid;
 
-    Position insertBefore(Position position, Object object) throws ExceptionPositionInvalid;
+    Position<T> insertBefore(Position<T> position, T object) throws ExceptionPositionInvalid;
 
-    Object remove(Position position) throws ExceptionPositionInvalid;
+    T remove(Position<T> position) throws ExceptionPositionInvalid;
 
-    Object removeFirst();
+    T removeFirst();
 
-    Object removeLast();
+    T removeLast();
 
-    Object replace(Position position, Object object) throws ExceptionPositionInvalid;
+    T replace(Position position, T object) throws ExceptionPositionInvalid;
 
-    Iterator positions();
+    Iterator<T> positions();
 
-    public Iterator elements();
+    public Iterator<T> elements();
 
 }

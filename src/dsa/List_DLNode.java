@@ -4,10 +4,10 @@ package dsa;
 import dsa.exception.ExceptionBoundaryViolation;
 import dsa.exception.ExceptionListEmpty;
 import dsa.exception.ExceptionPositionInvalid;
+import dsa.interfaces.Iterator;
 import dsa.interfaces.List;
 import dsa.interfaces.Position;
 
-import java.util.Iterator;
 
 public class List_DLNode implements List {
 
