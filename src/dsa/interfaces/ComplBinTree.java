@@ -1,7 +1,4 @@
-package dsa;
-
-import dsa.interfaces.BinTree;
-import dsa.interfaces.BinTreePosition;
+package dsa.interfaces;
 
 public interface ComplBinTree extends BinTree {
 
