@@ -1,10 +1,7 @@
 package dsa;
 
-import dsa.interfaces.BinTreePosition;
-import dsa.interfaces.ComplBinTree;
-import dsa.interfaces.Sequence;
-import dsa.interfaces.Vector;
-
+import dsa.interfaces.*;
+//TODO  use generics to replace Object
 public class ComplBinTree_Vector extends BinTree_LinkedList implements ComplBinTree {
 
     private Vector tree;
@@ -47,15 +44,22 @@ public class ComplBinTree_Vector extends BinTree_LinkedList implements ComplBinT
     public BinTreePosition addLast(Object object) {
         BinTreePosition node = new ComplBinTreeNode_Rank(tree, object);
         root = (BinTreePosition) tree.getAtRank(0);
+        return node;
     }
 
     @Override
     public Object delLast() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+        if (1 == getSize()) {
+            root = null;
+        }
+        return tree.removeAtRank(tree.getSize() - 1);
     }
 
     @Override
     public BinTreePosition posOfNode(int i) {
-        return null;
+        return (BinTreePosition) tree.getAtRank(i);
     }
 }
