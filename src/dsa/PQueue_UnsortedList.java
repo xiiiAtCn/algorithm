@@ -3,7 +3,6 @@ package dsa;
 import dsa.exception.ExceptionKeyInvalid;
 import dsa.exception.ExceptionPQueueEmpty;
 import dsa.interfaces.*;
-import javafx.geometry.Pos;
 
 /**
  * 基于无序列表实现的优先队列
