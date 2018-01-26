@@ -1,7 +1,6 @@
 package dsa;
 
 import dsa.interfaces.*;
-import javafx.geometry.Pos;
 
 public class Map_DLNode implements Map {
 
