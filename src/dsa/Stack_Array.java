@@ -10,6 +10,10 @@ public class Stack_Array implements Stack {
     protected Object[] S;
     protected int top = -1;
 
+    public Stack_Array() {
+
+    }
+
     public Stack_Array(int cap) {
         capacity = cap;
         S = new Object[capacity];
